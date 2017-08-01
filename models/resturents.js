@@ -9,8 +9,8 @@ var resturentsSchema = new mongoose.Schema({
     latitude: { type: String, default: ''},
     img: { data: Buffer, contentType: String },
     phonenumber: {type: [Number], default: 0},
-    waittime: {type:[Number], default: 0},
-    date:{type: String, default: ''},
+    waittime: {type: String, default: ''},
+    date:{type: String, default:Date.now},
 
 })
 

@@ -11,4 +11,8 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Login Page' });
 });
 
+router.get('/resturents', function(req, res, next) {
+    res.render('resturents', { title: 'Resturent Page' });
+});
+
 module.exports = router;
