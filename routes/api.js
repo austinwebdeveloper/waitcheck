@@ -30,7 +30,7 @@ router.get('/:resource', function(req, res, next){
         })
     }
 
-    if(resource == 'resturent')
+    if(resource == 'resturents')
     {
         resturentController.find(req.query, function(err, results){
             if(err) {
