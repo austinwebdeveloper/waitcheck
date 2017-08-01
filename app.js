@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var dbUrl = 'mongodb://Manikanta:manikanta.453@cluster0-shard-00-00-mqt4e.mongodb.net:27017,cluster0-shard-00-01-mqt4e.mongodb.net:27017,cluster0-shard-00-02-mqt4e.mongodb.net:27017/waitcheck?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+//var dbUrl = 'mongodb://Manikanta:manikanta.453@cluster0-shard-00-00-mqt4e.mongodb.net:27017,cluster0-shard-00-01-mqt4e.mongodb.net:27017,cluster0-shard-00-02-mqt4e.mongodb.net:27017/waitcheck?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 
-//var dbUrl = 'mongodb://manikanta:mani@1234@30@ds129023.mlab.com:29023/heroku_v1l8nlsz';
+var dbUrl = 'mongodb://Manikanta453:mani@1234@ds129013.mlab.com:29013/waitcheck';
 
 mongoose.connect(dbUrl, function(err, res){
 
