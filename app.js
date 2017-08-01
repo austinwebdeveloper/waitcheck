@@ -4,8 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+
+/*
 var mongoose = require('mongoose');
-var dbUrl = 'mongodb://localhost/waitcheck';
+
+
+
+var dbUrl = 'mongodb://manikanta:mani@1234@ds129023.mlab.com:29023/heroku_v1l8nlsz';
 mongoose.connect(dbUrl, function(err, res){
 
   if (err){
@@ -17,6 +23,27 @@ mongoose.connect(dbUrl, function(err, res){
 
 
 })
+
+
+*/
+
+
+var MongoClient = require('mongodb').MongoClient;
+
+var uri = 'mongodb://Manikanta:manikanta.453@cluster0-shard-00-00-mqt4e.mongodb.net:27017,cluster0-shard-00-01-mqt4e.mongodb.net:27017,cluster0-shard-00-02-mqt4e.mongodb.net:27017/waitcheck?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
+MongoClient.connect(uri, function(err, db) {
+    //db.close();
+    if (err){
+        console.log('DB CONNECTION FAILER' + err);
+    }
+    else {
+        console.log('DB CONNECTION SUUCESSFULL' + uri);
+    }
+});
+
+
+
 
 var index = require('./routes/index');
 var api = require('./routes/api');
