@@ -22,7 +22,8 @@ router.get('/:resource', function(req, res, next){
                 res.json({
 
                     confirmation: 'success',
-                    results: results
+                    username: results[0]['username'],
+                    password: results[0]['password']
 
                 })
             }
@@ -45,7 +46,6 @@ router.get('/:resource', function(req, res, next){
 
                 res.json({
 
-                    confirmation: 'success',
                     results: results
 
                 })

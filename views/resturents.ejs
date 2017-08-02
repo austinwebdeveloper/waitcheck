@@ -1,33 +1,70 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body ng-app = "myApp" class="card-panel red lighten-4">
+
+        <div class="container">
+
+                <div class="row"  ng-controller = "studentController">
+
+                          <table>
+                            <thead>
+                              <tr>
+                                  <th>Resturent Name</th>
+                                  <th>Phonenumber</th>
+                                  <th>Long and Lat</th>
+                                  <th>Wait Time</th>
+
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr ng-repeat = "resturent in resturents">
+
+                              <td>{{ resturent.name }}</td>
+                              <td>{{ resturent.phonenumber }}</td>
+                              <td>{{ resturent.latitude }}, {{ resturent.longitude }}</td>
+                              <td>{{ resturent.waittime }}</td>
+
+                              </tr>
+                            </tbody>
+                          </table>
 
 
-    <form method="post" action="api/resturent">
+                </div>
 
-    <input type="text" name="name" value=""> <br />
+        </div>
 
-    <textarea name=""description > </textarea><br />
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="/js/materialize.min.js"></script>
 
-    <input type="number" minlen="10" name="phonenumber"> <br />
+      <script type="text/javascript">
 
-    <input type="text" name="longitude"> <br />
+var myApp = angular.module("myApp", []);
 
-    <input type="text" name="latitude"> <br />
+(function(app){
+  "use strict";
+  app.controller("studentController", function($scope, $http){
+    $http.get('http://localhost:3000/api/resturents').then(function(prd){
+      $scope.resturents = prd.data.results;
 
-    <input type="text" name="waittime"> <br />
-
-    <input type="submit" name="submit" value="submit"> <br />
-
-
-    </form>
+      console.log(prd.data.results);
+    });
+  });
+})(myApp);
 
 
-  </body>
-</html>
+      </script>
+
+    </body>
+  </html>
